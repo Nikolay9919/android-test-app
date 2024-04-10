@@ -1,4 +1,4 @@
-package com.example.myapplication.domain.usecases
+package com.example.myapplication.domain.usecases.appEntry
 
 import com.example.myapplication.domain.manager.LocalUserManager
 
