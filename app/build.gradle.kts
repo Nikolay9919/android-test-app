@@ -1,6 +1,8 @@
 plugins {
+    id ("com.google.dagger.hilt.android")
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    kotlin("kapt")
 }
 
 android {
@@ -50,6 +52,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.dagger.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -59,6 +63,21 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.compose.navigation)
+    implementation(libs.androidx.core.splashScreen)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.retrofit2.converterGSON)
+    implementation(libs.io.coilKT.compose)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.google.accompanist.uiController)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -67,3 +86,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
