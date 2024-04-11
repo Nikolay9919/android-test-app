@@ -2,5 +2,9 @@
 <resources>
     <color name="display_small">#FFFFFFFF</color>
     <color name="default_image_color">#000000</color>
+    <color name="text_title">#FFFFFFFF</color>
+    <color name="body">#FFFFFFFF</color>
+    <color name="placeholder">#DDDDDD</color>
+    <color name="input_background">#3A3B3C</color>
 
 </resources>
