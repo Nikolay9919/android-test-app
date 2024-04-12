@@ -11,6 +11,7 @@ import com.example.myapplication.domain.usecases.appEntry.ReadAppEntry
 import com.example.myapplication.domain.usecases.appEntry.SaveAppEntry
 import com.example.myapplication.domain.usecases.news.GetNews
 import com.example.myapplication.domain.usecases.news.NewsUseCases
+import com.example.myapplication.domain.usecases.news.SearchNews
 import com.example.myapplication.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -18,7 +19,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -58,5 +58,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCases(newsRepository: NewsRepository): NewsUseCases =
-        NewsUseCases(getNews = GetNews(newsRepository))
+        NewsUseCases(
+            getNews = GetNews(newsRepository),
+            searchNews = SearchNews(newsRepository)
+        )
 }

@@ -4,8 +4,9 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.myapplication.domain.model.Article
 
-class NewsPagingSource(
+class FilteredNewsPagingSource(
     private val newsApi: NewsApi,
+    private val searchQuery: String,
     private val sources: String
 ) : PagingSource<Int, Article>() {
 
@@ -23,7 +24,11 @@ class NewsPagingSource(
         val page = params.key ?: 1
 
         return try {
-            val newsResponse = newsApi.getNews(sources = sources, page = page)
+            val newsResponse = newsApi.searchNews(
+                searchQuery = searchQuery,
+                sources = sources,
+                page = page
+            )
             totalNewsCount += newsResponse.articles.size
             val articles = newsResponse.articles.distinctBy { it.title } // Remove duplicates
             LoadResult.Page(
